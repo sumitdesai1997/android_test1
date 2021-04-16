@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 public class LoginPage extends AppCompatActivity implements View.OnClickListener {
 
+    // creating design objects
     EditText etUsername, etPassword, etStdName;
     Button btnLogin;
     public static String stdName = "";
@@ -25,9 +26,11 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         etStdName = findViewById(R.id.etStdName);
         btnLogin = findViewById(R.id.btnLogin);
 
+        // button listener
         btnLogin.setOnClickListener(this);
     }
 
+    // the loc=gic that will execute on the click of button
     @Override
     public void onClick(View v) {
         if(etUsername.getText().toString().isEmpty() || etPassword.getText().toString().isEmpty() || etStdName.getText().toString().isEmpty()){
@@ -35,6 +38,7 @@ public class LoginPage extends AppCompatActivity implements View.OnClickListener
         } else if (!(etUsername.getText().toString().equals("student1") && etPassword.getText().toString().equals("123456"))){
             Toast.makeText(this,"Invalid username or password", Toast.LENGTH_LONG).show();
         } else {
+            // set the student name and going to new activity
             stdName = etStdName.getText().toString();
             Intent intent = new Intent(getBaseContext(), MainActivity.class);
             startActivity(intent);
