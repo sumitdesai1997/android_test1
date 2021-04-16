@@ -117,13 +117,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            totalFees -= other;
             other = 0;
+
             if(cbAccomodation.isChecked()){
                 other += 1000;
             }
             if(cbMedicalInsurance.isChecked()){
                 other += 700;
             }
+            totalFees += other;
         }
     }
 
@@ -131,10 +134,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         @Override
         public void onClick(View v) {
-           /*int fee = Integer.parseInt(tvFees.getText().toString());
-           int hour = Integer.parseInt(tvHours.getText().toString());*/
 
-            totalFees += other;
             tvTotFees.setText(String.valueOf(totalFees));
 
             if(totalHours + hour > hourLimit){
