@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public static int[] feeList = {1300,1500,1350,1400,1000};
     public static int[] hourList = {6,5,5,7,4};
     public static int hourLimit = 19;
-    public static int other = 0;
+    public static int other= 0;
     public static int fee = 0;
     public static int hour = 0;
     public static int totalFees = 0;
@@ -134,10 +134,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
            /*int fee = Integer.parseInt(tvFees.getText().toString());
            int hour = Integer.parseInt(tvHours.getText().toString());*/
 
-           if(totalHours + hour > hourLimit){
-               Toast.makeText(getBaseContext(), "You can't add this course", Toast.LENGTH_LONG).show();
+            totalFees += other;
+            tvTotFees.setText(String.valueOf(totalFees));
+
+            if(totalHours + hour > hourLimit){
+               Toast.makeText(getBaseContext(), "You can't add this course", Toast.LENGTH_SHORT).show();
                return;
-           }
+            }
 
            totalFees += fee;
            totalHours += hour;
